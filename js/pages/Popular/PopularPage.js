@@ -16,10 +16,13 @@ const QUERY_STR = '&sort=starts'
 
 type Props = {};
 export default class PopularPage extends Component<Props> {
-    static navigationOptions = {
-        title : '首页',
-        backgroundColor : '#2196F3',
-    };
+    // static navigationOptions = {
+    //     headerTitle : '首页',
+    //     backgroundColor : '#2196F3',
+    // };
+
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -32,7 +35,13 @@ export default class PopularPage extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-                < ScrollableTableView >
+                < ScrollableTableView
+                    tabBarBackgroundColor = '#2196F3'
+                    tabBarActiveTextColor = 'mintcream'
+                    tabBarInactiveTextColor = 'white'
+                    tabBarUnderlineStyle = {{backgroundColor : '#e7e7e7',height:2}}
+                    // renderTabBar = {()=><ScrollableTabBar/>}
+                >
                     < PopularContentPage tabLabel = 'ios' />
                     < PopularContentPage tabLabel = 'js' />
                     < PopularContentPage tabLabel = 'java' />

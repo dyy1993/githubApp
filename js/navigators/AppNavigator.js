@@ -24,7 +24,11 @@ export const PopularNavigator = createStackNavigator({
         screen : PopularPage,
         navigationOptions : {
             title : "最热1",
-            color : '#2196F3',
+
+            headerTintColor : '#FFFFFF',
+            headerStyle: {
+                backgroundColor: '#2196F3' // 设置导航栏的背景颜色,headerTintColor设置无效
+            },
         }
     },
 
