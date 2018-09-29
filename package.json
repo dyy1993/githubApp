@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "npm": "^6.4.1",
     "react": "16.5.0",
     "react-native": "0.57.0",
+    "react-native-scrollable-tab-view": "github:happypancake/react-native-scrollable-tab-view#master",
     "react-navigation": "^2.14.2"
   },
   "devDependencies": {

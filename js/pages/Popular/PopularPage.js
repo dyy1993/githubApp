@@ -8,15 +8,36 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
-
+import HttpUtils from '../../utils/HttpUtils';
+import PopularContentPage from './PopularContentPage';
+import ScrollableTableView,{ScrollableTabBar} from 'react-native-scrollable-tab-view';
+const URL = 'https://api.github.com/search/repositories?q=ios&sort=starts'
+const QUERY_STR = '&sort=starts'
 
 type Props = {};
 export default class PopularPage extends Component<Props> {
+    static navigationOptions = {
+        title : '首页',
+        backgroundColor : '#2196F3',
+    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataInfo : '',
+        };
+    }
+    componentDidMount() {
+
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>PopularPage</Text>
+                < ScrollableTableView >
+                    < PopularContentPage tabLabel = 'ios' />
+                    < PopularContentPage tabLabel = 'js' />
+                    < PopularContentPage tabLabel = 'java' />
+                 </ScrollableTableView>
+
             </View>
         );
     }
@@ -25,18 +46,7 @@ export default class PopularPage extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+
 });

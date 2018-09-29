@@ -9,25 +9,64 @@ import FavoritePage from '../pages/Favorite/FavoritePage'
 import MinePage from '../pages/Mine/MinePage'
 import PopularPage from '../pages/Popular/PopularPage'
 import TrendingPage from '../pages/Trending/TrendingPage'
-export const AppTabNavigator = createBottomTabNavigator({
-    PopularPage:{
-        screen : PopularPage,
-        navigationOptions: ()=> TabOptions('最热',require('../../res/images/ic_polular.png'),'ic_trending.png','更多'),
 
-    },
-    TrendingPage:{
-        screen : TrendingPage,
-        navigationOptions: ()=> TabOptions('趋势',require('../../res/images/ic_polular.png'),'ic_trending.png','更多'),
-
-    },
-    FavoritePage:{
-        screen : FavoritePage,
-        navigationOptions: ()=> TabOptions('收藏',require('../../res/images/ic_polular.png'),'ic_favorite.png','标题'),
-
-    },
-    MinePage:{
+export const MineNavigator = createStackNavigator({
+    MinePage : {
         screen : MinePage,
-        navigationOptions: ()=> TabOptions('我的',require('../../res/images/ic_polular.png'),'ic_my.png','更多'),
+        navigationOptions : {
+            title : "我的",
+        }
+    },
+
+});
+export const PopularNavigator = createStackNavigator({
+    PopularPage : {
+        screen : PopularPage,
+        navigationOptions : {
+            title : "最热1",
+            color : '#2196F3',
+        }
+    },
+
+});
+export const TrendingNavigator = createStackNavigator({
+    TrendingPage : {
+        screen : TrendingPage,
+        navigationOptions : {
+            title : "趋势",
+        }
+    },
+
+});
+export const FavoriteNavigator = createStackNavigator({
+    FavoritePage : {
+        screen : FavoritePage,
+        navigationOptions : {
+            title : "收藏",
+        }
+    },
+
+});
+
+export const AppTabNavigator = createBottomTabNavigator({
+    PopularNavigator:{
+        screen : PopularNavigator,
+        navigationOptions: ()=> TabOptions('最热',require('../../res/images/ic_polular.png'),'最热'),
+
+    },
+    TrendingNavigator:{
+        screen : TrendingNavigator,
+        navigationOptions: ()=> TabOptions('趋势',require('../../res/images/ic_trending.png'),'趋势'),
+
+    },
+    FavoriteNavigator:{
+        screen : FavoriteNavigator,
+        navigationOptions: ()=> TabOptions('收藏',require('../../res/images/ic_favorite.png'),'收藏'),
+
+    },
+    MineNavigator:{
+        screen : MineNavigator,
+        navigationOptions: ()=> TabOptions('我的',require('../../res/images/ic_my.png'),'我的'),
 
     },
 
@@ -42,7 +81,7 @@ export const AppTabNavigator = createBottomTabNavigator({
     tabBarOptions:{
         // iOS属性
         // 因为第二个tabbar是在页面中创建的，所以前景色的设置对其无效，当然也可以通过设置tintColor使其生效
-        activeTintColor:'orange', // label和icon的前景色 活跃状态下（选中）。
+        activeTintColor:'#1E90FF', // label和icon的前景色 活跃状态下（选中）。
         inactiveTintColor:'gray', // label和icon的前景色 不活跃状态下(未选中)。
 
         activeBackgroundColor:'#eeeeee', //label和icon的背景色 活跃状态下（选中） 。
@@ -71,17 +110,16 @@ export const AppTabNavigator = createBottomTabNavigator({
     }
 
 });
-const TabOptions = (tabBarTitle,normalImage,selectedImage,navTitle) => {
+const TabOptions = (tabBarTitle,normalImage,navTitle) => {
     // console.log(navigation);
     const tabBarLabel = tabBarTitle;
     const tabBarIcon = (({tintColor,focused})=> {
-        var imageStr = !focused ? normalImage : selectedImage;
+        // var imageStr = !focused ? normalImage : selectedImage;
 
         return(
             <Image
                 // source={{uri: imageStr}}
                 source={normalImage}
-
                 style={[{height:26,width:26 }, {tintColor: tintColor}]}
             />
         )
@@ -96,7 +134,12 @@ const TabOptions = (tabBarTitle,normalImage,selectedImage,navTitle) => {
 };
 
 export const AppNavigator = createStackNavigator({
+    tabNav : {
+        screen : AppTabNavigator,
+        navigationOptions : {
 
+        }
+    },
     WelcomePage : {
         screen : WelcomePage,
         //2单个页面配置导航栏
@@ -112,12 +155,7 @@ export const AppNavigator = createStackNavigator({
         }
     },
 
-    tabNav : {
-        screen : AppTabNavigator,
-        navigationOptions : {
-            title : 'tabbar'
-        }
-    },
+
     // Page3 : {
     //     screen : Page3,
     //     //动态配置导航栏
@@ -142,3 +180,4 @@ export const AppNavigator = createStackNavigator({
     //     header : null
     // }
 });
+

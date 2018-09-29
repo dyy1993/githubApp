@@ -8,15 +8,33 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import  RepositoryDao from '../../dao/RepositoryDao'
 
 
 type Props = {};
 export default class FavoritePage extends Component<Props> {
+    constructor(props) {
+      super(props);
+      this.state = {
+          data : '',
+      };
+    }
+    componentDidMount() {
+        RepositoryDao().fetchNetRepository('')
+            .then(result => {
+            this.setState({
+                date : result,
+            });
+        })
+        //网路请求失败
+            .catch(e=> {
+                reject(e);
+            });
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>FavoritePage</Text>
+                <Text style={styles.welcome}>{this.state.data}</Text>
             </View>
         );
     }
