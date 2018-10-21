@@ -20,16 +20,7 @@ export default class FavoritePage extends Component<Props> {
       };
     }
     componentDidMount() {
-        RepositoryDao().fetchNetRepository('')
-            .then(result => {
-            this.setState({
-                date : result,
-            });
-        })
-        //网路请求失败
-            .catch(e=> {
-                reject(e);
-            });
+
     }
     render() {
         return (

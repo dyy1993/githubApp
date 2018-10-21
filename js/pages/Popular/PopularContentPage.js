@@ -34,10 +34,7 @@ export default class PopularContentPage extends Component<Props> {
             });
 
     }
-    // _renderItem(item){
-    //     return <Text>{item.name}</Text>
-    //
-    // }
+
     _renderItem = ({item}) => (
         <PopularCell item={item}/>
 

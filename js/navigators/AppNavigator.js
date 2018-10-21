@@ -4,7 +4,7 @@ import HomePage from '../pages/HomePage'
 import SetupPage from '../pages/SetupPage'
 import WelcomePage from '../pages/WelcomePage'
 import React from 'react'
-import {Button,Image} from 'react-native'
+import {DeviceInfo,Image} from 'react-native'
 import FavoritePage from '../pages/Favorite/FavoritePage'
 import MinePage from '../pages/Mine/MinePage'
 import PopularPage from '../pages/Popular/PopularPage'
@@ -23,7 +23,7 @@ export const PopularNavigator = createStackNavigator({
     PopularPage : {
         screen : PopularPage,
         navigationOptions : {
-            title : "最热1",
+            title : "最热",
 
             headerTintColor : '#FFFFFF',
             headerStyle: {
@@ -92,9 +92,9 @@ export const AppTabNavigator = createBottomTabNavigator({
         inactiveBackgroundColor:'#eeeeee', // label和icon的背景色 不活跃状态下（未选中）。
 
         showLabel:true, // 是否显示label，默认开启。
-        // style:{}, // tabbar的样式。
+        style:{height:DeviceInfo.isIPhoneX_deprecated ? 88 : 44,paddingBottom:DeviceInfo.isIPhoneX_deprecated ? 44 : 0,backgroundColor:'#eeeeee'}, // tabbar的样式。
         // labelStyle:{}, //label的样式。
-
+        safeAreaInset : { bottom: 'never', top: 'never' },
         // 安卓属性
 
         // activeTintColor:'', // label和icon的前景色 活跃状态下（选中） 。
@@ -124,12 +124,12 @@ const TabOptions = (tabBarTitle,normalImage,navTitle) => {
             <Image
                 // source={{uri: imageStr}}
                 source={normalImage}
-                style={[{height:26,width:26 }, {tintColor: tintColor}]}
+                style={[{height:20,width:20 }, {tintColor: tintColor}]}
             />
         )
     });
     const headerTitle = navTitle;
-    const headerTitleStyle = {fontSize:22,color:'white',alignSelf:'center'};
+    const headerTitleStyle = {fontSize:16,color:'white',alignSelf:'center'};
     // header的style
     const headerStyle = {backgroundColor:'#4ECBFC'};
     const tabBarVisible = true;
