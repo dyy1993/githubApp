@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import HttpUtils from '../../utils/HttpUtils';
 import PopularContentPage from './PopularContentPage';
-import ScrollableTableView,{ScrollableTabBar} from 'react-native-scrollable-tab-view';
+import ScrollableTableView,{ScrollableTabBar} from 'react-native-scrollable-tab-view2';
 const URL = 'https://api.github.com/search/repositories?q=ios&sort=starts'
 const QUERY_STR = '&sort=starts'
 
