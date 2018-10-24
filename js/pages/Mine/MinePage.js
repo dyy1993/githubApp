@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import NavigatorUtil from '../../utils/NavigatorUtil'
 
 
 type Props = {};
@@ -16,7 +16,13 @@ export default class MinePage extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>我的</Text>
+                <TouchableOpacity onPress={()=>{
+                    // NavigatorUtil.goToMenuPage(...this.props,'CustomKeyPage');
+                    this.props.navigation.navigate('CustomKeyPage');
+
+                }}>
+                    <Text style={styles.welcome}>我的</Text>
+                </TouchableOpacity>
             </View>
         );
     }

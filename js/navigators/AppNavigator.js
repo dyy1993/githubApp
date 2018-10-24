@@ -9,7 +9,7 @@ import FavoritePage from '../pages/Favorite/FavoritePage'
 import MinePage from '../pages/Mine/MinePage'
 import PopularPage from '../pages/Popular/PopularPage'
 import TrendingPage from '../pages/Trending/TrendingPage'
-
+import CustomKeyPage from '../pages/Popular/CustomKeyPage'
 export const MineNavigator = createStackNavigator({
     MinePage : {
         screen : MinePage,
@@ -17,6 +17,9 @@ export const MineNavigator = createStackNavigator({
             title : "我的",
         }
     },
+    CustomKeyPage : {
+        screen : CustomKeyPage,
+    }
 
 });
 export const PopularNavigator = createStackNavigator({
@@ -137,51 +140,51 @@ const TabOptions = (tabBarTitle,normalImage,navTitle) => {
     return {tabBarLabel,tabBarIcon,headerTitle,headerTitleStyle,headerStyle,tabBarVisible};
 };
 
-export const AppNavigator = createStackNavigator({
-    tabNav : {
-        screen : AppTabNavigator,
-        navigationOptions : {
-
-        }
-    },
-    WelcomePage : {
-        screen : WelcomePage,
-        //2单个页面配置导航栏
-        navigationOptions : ({navigation}) => ({
-            title : '欢迎页'
-        })
-    },
-
-    SetupPage : {
-        screen : SetupPage,
-        navigationOptions : {
-            title : 'SetupPage'
-        }
-    },
-
-
-    // Page3 : {
-    //     screen : Page3,
-    //     //动态配置导航栏
-    //     navigationOptions : (props) => {
-    //         const {navigation} = props;
-    //         const {state,setParams} = navigation;
-    //         const {params} = state;
-    //         return {
-    //              title : params.name ? params.name : '',
-    //              headerRight : (
-    //                 <Button title='编辑'
-    //                         onPress={()=>{}}
-    //                 />
-    //             ),
-    //
-    //         }
-    //     }
-    // }
-},{
-    //1全局配置导航栏
-    // navigationOptions : {
-    //     header : null
-    // }
-});
+// export const AppNavigator = createStackNavigator({
+//     tabNav : {
+//         screen : AppTabNavigator,
+//         navigationOptions : {
+//
+//         }
+//     },
+//     WelcomePage : {
+//         screen : WelcomePage,
+//         //2单个页面配置导航栏
+//         navigationOptions : ({navigation}) => ({
+//             title : '欢迎页'
+//         })
+//     },
+//
+//     SetupPage : {
+//         screen : SetupPage,
+//         navigationOptions : {
+//             title : 'SetupPage'
+//         }
+//     },
+//
+//
+//     // Page3 : {
+//     //     screen : Page3,
+//     //     //动态配置导航栏
+//     //     navigationOptions : (props) => {
+//     //         const {navigation} = props;
+//     //         const {state,setParams} = navigation;
+//     //         const {params} = state;
+//     //         return {
+//     //              title : params.name ? params.name : '',
+//     //              headerRight : (
+//     //                 <Button title='编辑'
+//     //                         onPress={()=>{}}
+//     //                 />
+//     //             ),
+//     //
+//     //         }
+//     //     }
+//     // }
+// },{
+//     //1全局配置导航栏
+//     // navigationOptions : {
+//     //     header : null
+//     // }
+// });
 
