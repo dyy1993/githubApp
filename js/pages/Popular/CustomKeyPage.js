@@ -4,25 +4,44 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Image, View, ScrollView} from 'react-native';
 import LanguageDao , {FLAG_LANGUAGE} from '../../dao/LanguageDao';
 import CheckBox from 'react-native-check-box';
+import ArrayUtils from '../../utils/ArrayUtils';
 type Props = {};
 export default class CustomKeyPage extends Component<Props> {
 
 
     constructor(props) {
         super(props);
+        this.params=this.props.navigation.state.params;
+
         this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
+        this.isRemoveKey=this.params.isRemoveKey?true:false;
+        this.changeValues = [];
         this.state = {
             dataArray : [],
         };
     }
     componentDidMount() {
+        this.loadData();
+    }
+    loadData(){
         this.languageDao.fetch().then(result => {
             this.setState({
                 dataArray : result,
-                isChecked : false,
             });
+        }).catch(error => {
+            console.log(error);
         })
     }
+    onClick(data) {
+        if(!this.isRemoveKey)data.checked = !data.checked;
+        ArrayUtils.updateArray(this.changeValues, data);
+        this.languageDao.save(this.state.dataArray);
+        this.setState({
+            dataArray : this.state.dataArray,
+        });
+        // alert('w');
+    }
+
     renderTagsView() {
         if (!this.state.dataArray || this.state.dataArray.length === 0)return;
         let length = this.state.dataArray.length;
@@ -51,17 +70,16 @@ export default class CustomKeyPage extends Component<Props> {
         return views;
     }
     renderCheckBox(data) {
-        var leftText = data.name;
+        let leftText = data.name;
+        let isChecked = this.isRemoveKey ? false : data.checked;
+
         return (
             <CheckBox
                 style={{flex: 1, padding: 10}}
-                onClick={()=>{
-                    this.setState({
-                        isChecked:!this.state.isChecked
-                    })
-                }}
+                onClick={()=>this.onClick(data)
+                }
                 leftText={leftText}
-                isChecked={this.state.isChecked}
+                isChecked={isChecked}
                 checkedImage={<Image source={require('../../../res/images/ic_check_box.png')} />}
                 unCheckedImage={<Image source={require('../../../res/images/ic_check_box_outline_blank.png')} />}
             />);
@@ -91,7 +109,7 @@ const styles = StyleSheet.create({
 
     line:{
         height:0.3,
-        color:'black',
+        backgroundColor:'#222222',
     }
 
 });

@@ -18,7 +18,7 @@ export default class MinePage extends Component<Props> {
             <View style={styles.container}>
                 <TouchableOpacity onPress={()=>{
                     // NavigatorUtil.goToMenuPage(...this.props,'CustomKeyPage');
-                    this.props.navigation.navigate('CustomKeyPage');
+                    this.props.navigation.navigate('CustomKeyPage',{'isRemoveKey':false});
 
                 }}>
                     <Text style={styles.welcome}>我的</Text>
