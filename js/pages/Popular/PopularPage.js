@@ -10,8 +10,9 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import HttpUtils from '../../utils/HttpUtils';
 import PopularContentPage from './PopularContentPage';
-import ScrollableTableView,{ScrollableTabBar} from 'react-native-scrollable-tab-view';
+import ScrollableTableView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import LanguageDao, {FLAG_LANGUAGE} from '../../dao/LanguageDao';
+
 const URL = 'https://api.github.com/search/repositories?q=ios&sort=starts'
 const QUERY_STR = '&sort=starts'
 
@@ -23,32 +24,34 @@ export default class PopularPage extends Component<Props> {
     // };
 
 
-
     constructor(props) {
         super(props);
         this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
         this.state = {
-            languages : [],
+            languages: [],
         };
     }
+
     componentDidMount() {
         this.loadData()
     }
-    loadData(){
+
+    loadData() {
         this.languageDao.fetch().then(result => {
             this.setState({
-                languages : result,
+                languages: result,
             });
         }).catch(error => {
             console.log(error);
         })
     }
+
     render() {
-        let pageViews = this.state.languages.length > 0 ?  < ScrollableTableView
-            tabBarBackgroundColor = '#2196F3'
-            tabBarActiveTextColor = 'mintcream'
-            tabBarInactiveTextColor = 'white'
-            tabBarUnderlineStyle = {{backgroundColor : '#e7e7e7',height:2}}
+        let pageViews = this.state.languages.length > 0 ? < ScrollableTableView
+            tabBarBackgroundColor='#2196F3'
+            tabBarActiveTextColor='mintcream'
+            tabBarInactiveTextColor='white'
+            tabBarUnderlineStyle={{backgroundColor: '#e7e7e7', height: 2}}
             // renderTabBar = {()=><ScrollableTabBar/>}
         >
             {/*< PopularContentPage tabLabel = 'ios' />*/}
@@ -56,7 +59,7 @@ export default class PopularPage extends Component<Props> {
             {/*< PopularContentPage tabLabel = 'java' />*/}
             {this.state.languages.map((result, i, array) => {
                 let lan = array[i];
-                return lan.checked ? < PopularContentPage key={i} tabLabel={lan.name} > java</PopularContentPage> : null;
+                return lan.checked ? < PopularContentPage key={i} tabLabel={lan.name}> java</PopularContentPage> : null;
 
             })}
 

@@ -21,7 +21,14 @@ export default class MinePage extends Component<Props> {
                     this.props.navigation.navigate('CustomKeyPage',{'isRemoveKey':false});
 
                 }}>
-                    <Text style={styles.welcome}>我的</Text>
+                    <Text style={styles.welcome}>自定义key</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>{
+                    // NavigatorUtil.goToMenuPage(...this.props,'CustomKeyPage');
+                    this.props.navigation.navigate('SortKeyPage');
+
+                }}>
+                    <Text style={styles.welcome}>key排序</Text>
                 </TouchableOpacity>
             </View>
         );

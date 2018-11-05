@@ -36,6 +36,9 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* githubAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* githubAppTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		2F0A44A42187FEE000AA3806 /* XXXRoundMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A447D2187FEE000AA3806 /* XXXRoundMenuButton.m */; };
+		2F0A44A72188035A00AA3806 /* DYWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A44A62188035A00AA3806 /* DYWindow.m */; };
+		2FB520862181B34700BB785F /* JYCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB520852181B34700BB785F /* JYCWindow.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
@@ -339,6 +342,12 @@
 		2D02E47B1E0B4A5D006451C7 /* githubApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "githubApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* githubApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "githubApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0A447D2187FEE000AA3806 /* XXXRoundMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXRoundMenuButton.m; sourceTree = "<group>"; };
+		2F0A447E2187FEE000AA3806 /* XXXRoundMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXRoundMenuButton.h; sourceTree = "<group>"; };
+		2F0A44A52188035A00AA3806 /* DYWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYWindow.h; sourceTree = "<group>"; };
+		2F0A44A62188035A00AA3806 /* DYWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYWindow.m; sourceTree = "<group>"; };
+		2FB5205F2181B34700BB785F /* JYCWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYCWindow.h; sourceTree = "<group>"; };
+		2FB520852181B34700BB785F /* JYCWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYCWindow.m; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -481,7 +490,10 @@
 		13B07FAE1A68108700A75B9A /* githubApp */ = {
 			isa = PBXGroup;
 			children = (
+				2F0A447C2187FEE000AA3806 /* Views */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				2FB5205F2181B34700BB785F /* JYCWindow.h */,
+				2FB520852181B34700BB785F /* JYCWindow.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -521,6 +533,17 @@
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F0A447C2187FEE000AA3806 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A447E2187FEE000AA3806 /* XXXRoundMenuButton.h */,
+				2F0A447D2187FEE000AA3806 /* XXXRoundMenuButton.m */,
+				2F0A44A52188035A00AA3806 /* DYWindow.h */,
+				2F0A44A62188035A00AA3806 /* DYWindow.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -1113,8 +1136,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0A44A42187FEE000AA3806 /* XXXRoundMenuButton.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				2FB520862181B34700BB785F /* JYCWindow.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				2F0A44A72188035A00AA3806 /* DYWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

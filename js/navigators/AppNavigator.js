@@ -10,6 +10,7 @@ import MinePage from '../pages/Mine/MinePage'
 import PopularPage from '../pages/Popular/PopularPage'
 import TrendingPage from '../pages/Trending/TrendingPage'
 import CustomKeyPage from '../pages/Popular/CustomKeyPage'
+import SortKeyPage from '../pages/Popular/SortKeyPage'
 export const MineNavigator = createStackNavigator({
     MinePage : {
         screen : MinePage,
@@ -19,6 +20,9 @@ export const MineNavigator = createStackNavigator({
     },
     CustomKeyPage : {
         screen : CustomKeyPage,
+    },
+    SortKeyPage : {
+        screen : SortKeyPage,
     }
 
 });

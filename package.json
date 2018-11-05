@@ -12,6 +12,7 @@
     "react-native": "0.57.0",
     "react-native-check-box": "^2.1.6",
     "react-native-scrollable-tab-view": "github:happypancake/react-native-scrollable-tab-view#master",
+    "react-native-sortable-listview": "^0.2.8",
     "react-navigation": "^2.14.2"
   },
   "devDependencies": {

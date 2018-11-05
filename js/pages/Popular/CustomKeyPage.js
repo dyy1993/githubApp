@@ -88,7 +88,6 @@ export default class CustomKeyPage extends Component<Props> {
         return (
             <ScrollView>
 
-
                     {this.renderTagsView()}
 
 
