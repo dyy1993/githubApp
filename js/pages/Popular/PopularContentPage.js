@@ -21,6 +21,7 @@ export default class PopularContentPage extends Component<Props> {
             dataArray : [],
         };
     }
+    
     componentDidMount() {
         var url = URL + this.props.tabLabel + QUERY_STR;
         HttpUtils.get(url)
